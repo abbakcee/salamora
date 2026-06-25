@@ -3,24 +3,24 @@ import "./Home.css";
 // Import your header logo asset
 import logoImg from "../assets/mlogo.png";
 // Import your new wings background asset
-import wingsBg from "../assets/wings.jpg";
-import abtImg from "../assets/abt.jpg";
+import wingsBg from "../assets/wings.JPG";
+import abtImg from "../assets/abt.JPG";
 import aboutImg from "../assets/about.PNG";
-import menuImg from "../assets/menu.jpg";
+import menuImg from "../assets/menu.JPG";
 import chefIcon from "../assets/chef.png";
 import grillIcon from "../assets/grill.png";
 
-import morayamBg from "../assets/morayam.jpg";
-import nImg from "../assets/n.jpg";
-import yImg from "../assets/y.jpg";
-import fImg from "../assets/f.jpg";
+import morayamBg from "../assets/morayam.JPG";
+import nImg from "../assets/n.JPG";
+import yImg from "../assets/y.JPG";
+import fImg from "../assets/f.JPG";
 
 import frothVideo from "../assets/froth.mp4";
 import secondLogo from "../assets/second.png";
 
-import mnImg from "../assets/mn.jpg";
+import mnImg from "../assets/mn.JPG";
 
-import ramImg from "../assets/ram.jpg";
+import ramImg from "../assets/ram.JPG";
 
 const Home = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
