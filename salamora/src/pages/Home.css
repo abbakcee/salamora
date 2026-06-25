@@ -1,0 +1,1685 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8f1e7;
+}
+
+/* Navbar */
+
+.navbar {
+  position: relative; /* ⬅️ This naturally pushes the hero section down so they don't fight for space */
+  width: 100%;
+  height: 90px; 
+  background-color: #121212; /* Solid premium dark background canvas */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6%;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15); 
+}
+
+/* Base Link Group Rules */
+.nav-group {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 35%; /* Ensures equal horizontal balancing on both sides */
+}
+
+.nav-left {
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.nav-right {
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.nav-group li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-group li a:hover {
+  color: #ffd700; /* Deep gold text hover highlight */
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* --- Centered Logo Scaling --- */
+.logo-container-center {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo-centered {
+  height: 70px; /* Increased size - perfectly balanced, not too overpowering */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.logo-container-center:hover .navbar-logo-centered {
+  transform: scale(1.05); /* Gentle response when a user hovers over the main emblem */
+}
+
+/* --- Animated Vertical Gold Separators --- */
+.nav-divider {
+  width: 1px;
+  height: 20px; /* Height of the line between tabs */
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0) 0%,
+    rgba(255, 215, 0, 1) 50%,
+    rgba(212, 175, 55, 0) 100%
+  );
+  display: inline-block;
+  opacity: 0.6;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Glow when hovering over the enclosing link groups */
+.nav-group:hover .nav-divider {
+  transform: scaleY(1.3);
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+}
+
+/* Hero */
+
+/* Hero Section Setup */
+
+.hero {
+  position: relative;
+  /* 📐 Shinks the hero view height exactly by the navbar's 90px height so nothing gets cut off at the bottom */
+  height: calc(100vh - 90px); 
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 850px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Height wrapper protects your page from jumping when phrases switch lengths */
+.text-slider-wrapper {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  /* High-contrast shadows make sure text stays vibrant and perfectly readable over food images */
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.85), 0 0 20px rgba(92, 64, 51, 0.4);
+  animation: heroTextFadeIn 0.6s ease-out forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  max-width: 600px;
+  margin-bottom: 25px;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-btn {
+  background: #b22222;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 4px 15px rgba(178, 34, 34, 0.4);
+}
+
+.hero-btn:hover {
+  background: #8b0000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(178, 34, 34, 0.6);
+}
+
+/* ----------------------------------------------------
+   🔥 UNIQUE TEXT FONTS FOR EACH COMMUNITY SLIDE
+---------------------------------------------------- */
+
+/* Slide 1: Welcome */
+.font-welcome {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* Slide 2: Mora Time */
+.font-mora-time {
+  font-family: "Impact", "Arial Black", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #f8f1e7;
+}
+
+/* Slide 3: Mora Community */
+.font-community {
+  font-family: "Georgia", serif;
+  font-weight: 600;
+  font-size: 3rem; 
+}
+
+/* Slide 4: Best Grilled Dishes */
+.font-grilled {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* Slide 5: Sizzling Perfection */
+.font-sizzle {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 3.2rem;
+}
+
+/* Slide 6: Tradition Meets Passion */
+.font-passion {
+  font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+/* ----------------------------------------------------
+   💨 ANIMATIONS & RESPONSIVENESS
+---------------------------------------------------- */
+
+@keyframes heroTextFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+  
+  .text-slider-wrapper {
+    min-height: 120px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem !important;
+  }
+  
+  .font-passion {
+    font-size: 2.8rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* About */
+
+/* ====================================================
+   🟫 ABOUT SECTION (Alternating Darker Brown Shade)
+   ==================================================== */
+
+/* About Section Base Layout (Original Desktop Split Grid) */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Left Image, Center Text, Right Image */
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Fixes the mismatched sizes on desktop without altering the horizontal alignment */
+.about-grid img {
+  width: 100%;
+  height: 400px;       /* Forces both images to have an identical visual height */
+  object-fit: cover;   /* Prevents stretching or losing quality by cropping to fit */
+  border-radius: 12px; /* Keeps your beautiful curved edges */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Your 3D floating shadow layer */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Your hover effect remains perfectly intact */
+.about-grid img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE RESPONSIVE PRESERVATION */
+/* This ensures that if the images ever do stack, it ONLY happens on small screens */
+@media screen and (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stacks sequentially on phones: Image -> Text -> Image */
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .about-grid img {
+    height: 300px; /* Adapts height nicely to look stunning on mobile screens */
+  }
+}
+
+/* Featured */
+
+/* ====================================================
+   🔥 FEATURED DISHES / MAIN MENU SECTION
+   ==================================================== */
+
+.featured {
+  background-color: #f8f1e7; /* Reverts back to your pristine light almond background */
+  padding: 100px 10%;
+  position: relative; /* Essential to anchor our chef and grill accent icons */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Header customization matching about section styling layout rules */
+.menu-header-zone {
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-main-title {
+  color: #5c4033;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.menu-sub-title {
+  font-family: "Cormorant Garamond", serif;
+  color: #b22222; /* Salamora Red Subtitle */
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Central menu image positioning canvas */
+.menu-display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 10px;
+  z-index: 5;
+}
+
+/* Regular state interactive menu card design frame */
+.menu-board-wrapper {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  
+  /* Deep floating drop shadow separating it off the layout surface */
+  box-shadow: 0 15px 35px rgba(92, 64, 51, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.menu-board-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Text hover notification badge overlaying menu container */
+.menu-click-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 10px 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Normal float-up hover triggers */
+.menu-board-wrapper:not(.zoomed-overlay):hover {
+  transform: translateY(-12px); /* Makes menu board smoothly float upwards */
+  box-shadow: 0 25px 45px rgba(92, 64, 51, 0.35), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-board-wrapper:not(.zoomed-overlay):hover .menu-click-hint {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------
+   🔍 INTERACTIVE EXPANDED ZOOM STATE (LIGHTBOX MODAL)
+---------------------------------------------------- */
+
+.menu-board-wrapper.zoomed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Dims entire page out */
+  z-index: 9999; /* Forces layer above absolute top of screen */
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  padding: 40px;
+  box-shadow: none;
+  transform: none !important;
+}
+
+.menu-board-wrapper.zoomed-overlay .menu-board-image {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: menuZoomPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes menuZoomPop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ----------------------------------------------------
+   🎨 SMALL DESIGN WATERMARK BADGES (CHEF & GRILL)
+---------------------------------------------------- */
+
+.menu-deco-icon {
+  position: absolute;
+  width: 95px; /* Perfect decorative design calculation balance size */
+  height: auto;
+  opacity: 0.22; /* Soft visual treatment blend background texture */
+  pointer-events: none; /* Mouse safely bypasses clicks through them */
+  user-select: none;
+}
+
+.chef-icon {
+  top: 40px;
+  left: 4%;
+  transform: rotate(-12deg);
+}
+
+.grill-icon {
+  bottom: 40px;
+  right: 4%;
+  transform: rotate(15deg);
+}
+
+/* ----------------------------------------------------
+   💨 RESPONSIVE ADJUSTMENTS
+---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .featured {
+    padding: 70px 6%;
+  }
+
+  .menu-deco-icon {
+    width: 65px; /* Scales artwork nicely for mobile screen balance */
+  }
+  
+  .chef-icon {
+    top: 20px;
+    left: 2%;
+  }
+
+  .grill-icon {
+    bottom: 20px;
+    right: 2%;
+  }
+  
+  .menu-board-wrapper.zoomed-overlay {
+    padding: 15px;
+  }
+}
+/* ====================================================
+   🔥 BEST SELLING DISHES (3D INTERACTIVE FLIP SYSTEM)
+   ==================================================== */
+
+.best-sellers {
+  padding: 110px 8%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax scrolling engine */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sellers-header-zone {
+  text-align: center;
+  margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sellers-title {
+  font-family: "Cormorant Garamond", serif;
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Flex layout centering cards next to each other */
+.sellers-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+/* Card Root Setup with 3D Perspective Context */
+.flip-card-container {
+  flex: 1;
+  height: 360px; /* Constrains height equally across columns */
+  perspective: 1200px; /* Essential to allow realistic depth perception */
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; /* Tells browser cards possess front and back layers */
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Float Up on Hover State (Only applies if card isn't flipped open) */
+.flip-card-container:not(.is-flipped):hover .flip-card-inner {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* Flipped State Execution Class Triggered via State Hooks */
+.flip-card-container.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card Face Configurations */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides reverse layer while facing the user */
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #222222;
+}
+
+.seller-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps imagery pristine without distortion properties */
+  filter: brightness(1.03) contrast(1.03);
+}
+
+/* Secret Text Reverse Panel Layout */
+.flip-card-back {
+  background-color: #ebdcd0; /* Alternating warm brown shade matching site theme style */
+  color: #5c4033;
+  border: 3px solid #b22222; /* Framed with Salamora Firebrick Red */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  transform: rotateY(180deg); /* Pre-flips the back panel text layout horizontally */
+}
+
+.secret-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Hint Text Container Styling */
+.sellers-footer-hint {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.secret-hint-text {
+  font-family: "Poppins", sans-serif;
+  color: #f8f1e7;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.8);
+  animation: hintTextPulse 2.5s infinite ease-in-out;
+}
+
+/* Subtle pulse animation to draw focus down to layout instructions */
+@keyframes hintTextPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); color: #ebdcd0; }
+}
+
+/* ====================================================
+   💨 RESPONSIVENESS (Responsive stack transitions)
+   ==================================================== */
+
+@media (max-width: 900px) {
+  .sellers-grid {
+    flex-direction: column; /* Stacks image cards vertically */
+    gap: 35px;
+  }
+
+  .flip-card-container {
+    width: 100%;
+    max-width: 420px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .best-sellers {
+    padding: 70px 6%;
+  }
+
+  .sellers-title {
+    font-size: 2.2rem;
+  }
+
+  .secret-text {
+    font-size: 1rem;
+  }
+}
+/* CTA */
+
+.cta {
+  background: #5c4033;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.cta button {
+  background: #b22222;
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cta button:hover {
+  background: #8b0000;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  box-shadow:
+    0 0 10px rgba(212, 175, 55, 0.4),
+    0 0 20px rgba(178, 34, 34, 0.2);
+
+  animation: spiceFloat 1.2s ease-out forwards;
+}
+
+@keyframes spiceFloat {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -90px) scale(0);
+  }
+}
+/* ====================================================
+   ☕ FROTH THEORY SECTION (AMBIENT VIDEO CANVAS)
+   ==================================================== */
+
+.froth-theory {
+  position: relative; /* Forms the coordinate grid for fixed absolute positioning layers */
+  width: 100%;
+  height: 65vh; /* Optimal height balance ensuring crisp screen presence scrolling down */
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents raw video frames from overflowing layout dimensions */
+  padding: 0 10%;
+}
+
+/* Video Canvas Wrapper and Mask Layer Engines */
+.video-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.froth-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Forces looping clip to crop perfectly without distortion shapes */
+}
+
+/* Mixed overlay to optimize text contrast and give the video an elegant blur effect */
+.video-overlay-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.75) 100%);
+  backdrop-filter: blur(5px); /* Cinematic soft lens blur effect */
+  -webkit-backdrop-filter: blur(5px); /* Universal Safari compatibility layer */
+}
+
+/* ----------------------------------------------------
+   📌 BRAND BADGE POSITIONING (TOP LEFT)
+---------------------------------------------------- */
+
+.froth-brand-badge {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  z-index: 5; /* Ascends structural hierarchy above mask filter plane */
+  pointer-events: none;
+}
+
+.froth-sub-logo {
+  width: 130px; /* Perfect sizing properties for balanced design weight */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5)) brightness(1.05);
+  animation: floatSubLogo 4s infinite ease-in-out;
+}
+
+/* Gentle hovering animation for the brand badge logo */
+@keyframes floatSubLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ----------------------------------------------------
+   ✒️ CENTRAL LEGIBILITY TYPOGRAPHY BLOCK
+---------------------------------------------------- */
+
+.froth-content-core {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 750px;
+  color: #f8f1e7; /* Pristine almond tone contrast choice */
+}
+
+.froth-main-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.froth-sub-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ====================================================
+   💨 RESPONSIVE CONSTRAINTS (Fluid tablet and phone layouts)
+   ==================================================== */
+
+@media (max-width: 900px) {
+  .froth-theory {
+    height: 55vh;
+    min-height: 400px;
+  }
+
+  .froth-main-title {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+
+  .froth-sub-heading {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  .froth-sub-logo {
+    width: 105px;
+  }
+}
+
+@media (max-width: 600px) {
+  .froth-theory {
+    padding: 0 6%;
+    align-items: flex-end;
+    padding-bottom: 60px; /* Shifts text away from top-left pinned logo on narrow viewports */
+  }
+
+  .froth-brand-badge {
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the brand badge logo on mobile viewports */
+  }
+  
+  .froth-sub-logo {
+    animation: none; /* Disables animation logic to reduce device rendering load */
+  }
+
+  .froth-main-title {
+    font-size: 2.2rem;
+  }
+
+  .froth-sub-heading {
+    font-size: 1.05rem;
+  }
+}
+/* ====================================================
+   ☕ FROTH MENU CONTINUATION SHOWCASE SECTION
+   ==================================================== */
+
+.froth-menu-section {
+  background-color: #f8f1e7; /* Reverts cleanly back to your original pristine light almond background */
+  padding: 100px 10%;
+  position: relative; /* Essential to anchor the floating background accent details */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(92, 64, 51, 0.05);
+}
+
+/* Header layout configuration replicating main menu aesthetics */
+.froth-menu-header-zone {
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.froth-menu-main-title {
+  font-family: "Poppins", sans-serif;
+  color: #5c4033; /* Deep warm brown title signature */
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.froth-menu-sub-title {
+  font-family: "Cormorant Garamond", serif;
+  color: #b22222; /* Salamora Crimson accent text */
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Center menu board layout container dimensions */
+.froth-menu-display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 10px;
+  z-index: 5;
+}
+
+/* Floating interactive card wrapper */
+.froth-board-wrapper {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  
+  /* Deep floating drop shadow configuration */
+  box-shadow: 0 15px 35px rgba(92, 64, 51, 0.22), 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.froth-board-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Interactive bottom shade prompt text */
+.froth-click-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  color: #ffffff;
+  text-align: center;
+  padding: 25px 10px 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Floating up animations on desktop cursor entry */
+.froth-board-wrapper:not(.froth-zoomed-overlay):hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 45px rgba(92, 64, 51, 0.32), 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.froth-board-wrapper:not(.froth-zoomed-overlay):hover .froth-click-hint {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------
+   🔍 INDEPENDENT INTERACTIVE FULL SCREEN LIGHTBOX 
+---------------------------------------------------- */
+
+.froth-board-wrapper.froth-zoomed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.88); /* Uniform dark viewport dim mask */
+  z-index: 9999; /* Forces presentation layering above all content planes */
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  padding: 40px;
+  box-shadow: none;
+  transform: none !important;
+}
+
+.froth-board-wrapper.froth-zoomed-overlay .froth-board-image {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: frothZoomPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes frothZoomPop {
+  from { transform: scale(0.88); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ----------------------------------------------------
+   🎨 DETAILED WATERMARK BRAND DESIGN ACCENTS
+---------------------------------------------------- */
+
+.froth-deco-icon {
+  position: absolute;
+  width: 105px; /* Sizing properties corresponding precisely to menu details weight */
+  height: auto;
+  opacity: 0.14; /* Delicate visual treatment blending into back texture */
+  pointer-events: none;
+  user-select: none;
+}
+
+.froth-deco-left {
+  top: 45px;
+  left: 4%;
+  transform: rotate(-15deg);
+}
+
+.froth-deco-right {
+  bottom: 45px;
+  right: 4%;
+  transform: rotate(20deg);
+}
+
+/* ----------------------------------------------------
+   💨 FLUID DEVICE RESPONSIVENESS
+---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .froth-menu-section {
+    padding: 70px 6%;
+  }
+
+  .froth-menu-main-title {
+    font-size: 2.1rem;
+  }
+
+  .froth-menu-sub-title {
+    font-size: 1.5rem;
+  }
+
+  .froth-deco-icon {
+    width: 75px; /* Balanced scale reductions across tablet viewports */
+  }
+
+  .froth-deco-left {
+    top: 25px;
+    left: 3%;
+  }
+
+  .froth-deco-right {
+    bottom: 25px;
+    right: 3%;
+  }
+
+  .froth-board-wrapper.froth-zoomed-overlay {
+    padding: 15px;
+  }
+}
+/* ====================================================
+   🍽️ SERVICES SECTION (50/50 HORIZONTAL SPLIT WITH FADE)
+   ==================================================== */
+
+.services-section {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+  background-color: #f8f1e7; /* Core theme light almond shade */
+  position: relative;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------
+   ⬅️ LEFT SIDE: HEADER ZONE & LEFT-ALIGNED BULLETS
+---------------------------------------------------- */
+
+.services-left-content {
+  flex: 1;
+  padding: 80px 5% 80px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Forces all children contents to align to the left side */
+  z-index: 3;
+}
+
+.services-header-zone {
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left aligns header strings and branding red decoration bars */
+}
+
+.services-main-title {
+  font-family: "Poppins", sans-serif;
+  color: #5c4033; /* Salamora deep signature brown typography */
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Bullet list styling layout configurations */
+.services-bullet-list {
+  list-style-type: disc; /* Enforces native circular visual bullet items */
+  padding-left: 25px; /* Creates spacing indentation profile for bullet dots */
+  margin: 0;
+  text-align: left; /* Strict left-alignment insurance */
+}
+
+.services-bullet-list li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #5c4033;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  transition: transform 0.3s ease;
+}
+
+/* Elegant, non-disruptive hover highlight interaction on list selection items */
+.services-bullet-list li:hover {
+  transform: translateX(6px);
+  color: #b22222; /* Changes font highlight safely to brand crimson red */
+}
+
+/* ----------------------------------------------------
+   ➡️ RIGHT SIDE: VISUAL COVER PANEL WITH GRADIENT OVERLAY FADE
+---------------------------------------------------- */
+
+.services-right-visual {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100%;
+}
+
+/* The magic layer: Fades the base background color smoothly into the image */
+.services-fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #f8f1e7 0%,             /* Fully matches left side color at the intersection border */
+    rgba(248, 241, 231, 0.8) 15%,
+    rgba(248, 241, 231, 0) 60%  /* Entirely clear over the remaining space to show ram.jpg */
+  );
+  pointer-events: none;
+}
+
+/* ====================================================
+   💨 RESPONSIVENESS (Responsive stack transformations)
+   ==================================================== */
+
+@media (max-width: 991px) {
+  .services-main-title {
+    font-size: 2.4rem;
+  }
+  
+  .services-bullet-list li {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    flex-direction: column; /* Switches from horizontal row to structural top-bottom column block */
+    
+  }
+
+  .services-left-content {
+    padding: 60px 8%;
+    align-items: center; /* Shifts section layout center on narrow compact mobile screens */
+  }
+
+  .services-header-zone {
+    align-items: center;
+  }
+
+  .services-bullet-list {
+    padding-left: 20px;
+  }
+
+  .services-right-visual {
+    width: 100%;
+    height: 350px; /* Locked responsive height panel profile on phones */
+  }
+
+  /* Alters gradient trajectory direction to blend top-to-bottom on mobile stacks */
+  .services-fade-overlay {
+    background: linear-gradient(
+      to bottom,
+      #f8f1e7 0%,
+      rgba(248, 241, 231, 0) 50%
+    );
+  }
+  
+}
+/* ====================================================
+   🍽️ SERVICES SECTION STYLING MATRIX
+   ==================================================== */
+
+.services-section {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+  background-color: #f8f1e7;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-left-content {
+  flex: 1;
+  padding: 80px 5% 80px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+.services-header-zone {
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services-main-title {
+  font-family: "Poppins", sans-serif;
+  color: #5c4033;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.services-bullet-list {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin: 0;
+  text-align: left;
+}
+
+.services-bullet-list li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #5c4033;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  transition: transform 0.3s ease;
+}
+
+.services-bullet-list li:hover {
+  transform: translateX(6px);
+  color: #b22222;
+}
+
+.services-right-visual {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100%;
+}
+
+.services-fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #f8f1e7 0%,
+    rgba(248, 241, 231, 0.8) 15%,
+    rgba(248, 241, 231, 0) 60__
+  );
+  pointer-events: none;
+}
+
+/* ====================================================
+   📞 UNIFIED BRAND CONTACT FOOTER STYLING MATRIX
+   ==================================================== */
+
+.contact-footer-section {
+  background-color: #5c4033;
+  padding: 90px 8% 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid rgba(178, 34, 34, 0.2);
+}
+
+.contact-container-inner {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-main-title {
+  font-family: "Cormorant Garamond", serif;
+  color: #ebdcd0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 45px;
+}
+
+.contact-logo-hub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 50px;
+}
+
+.contact-brand-emblem {
+  max-width: 110px;
+  height: auto;
+  max-height: 85px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.contact-logo-divider {
+  width: 2px;
+  height: 55px;
+  background-color: #b22222;
+  opacity: 0.85;
+}
+
+.contact-detail-row {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.contact-interactive-link {
+  font-family: "Poppins", sans-serif;
+  color: #f8f1e7;
+  font-size: 1.15rem;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.contact-interactive-link:hover {
+  color: #ebdcd0;
+  text-decoration: underline;
+}
+
+.contact-hours-text {
+  font-family: "Poppins", sans-serif;
+  color: #ebdcd0;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.contact-closing-row {
+  margin-top: 25px;
+}
+
+.contact-invitation-highlight {
+  font-family: "Cormorant Garamond", serif;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ====================================================
+   💨 FLUID DEVICE RESPONSIVENESS MATRIX
+   ==================================================== */
+
+@media (max-width: 768px) {
+  .services-section {
+    flex-direction: column;
+  }
+
+  .services-left-content {
+    padding: 60px 8%;
+    align-items: center;
+  }
+
+  .services-header-zone {
+    align-items: center;
+  }
+
+  .services-right-visual {
+    width: 100%;
+    height: 350px;
+  }
+
+  .services-fade-overlay {
+    background: linear-gradient(
+      to bottom,
+      #f8f1e7 0%,
+      rgba(248, 241, 231, 0) 50%
+    );
+  }
+
+  .contact-footer-section {
+    padding: 70px 6% 50px;
+  }
+
+  .contact-main-title {
+    font-size: 2.3rem;
+  }
+
+  .contact-brand-emblem {
+    max-width: 90px;
+    max-height: 70px;
+  }
+}
+
+.contact-hours-text {
+  font-family: "Poppins", sans-serif;
+  color: #ebdcd0;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* ----------------------------------------------------
+   ✨ VISIT US ANYTIME CALL-TO-ACTION (CTA)
+---------------------------------------------------- */
+
+.contact-closing-row {
+  margin-top: 25px;
+}
+
+.contact-invitation-highlight {
+  font-family: "Cormorant Garamond", serif;
+  color: #ffffff; /* Promoted to solid white to maximize visual weight and stand out */
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------------
+   💨 RESPONSIVENESS (Responsive stack transitions)
+   ==================================================== */
+
+@media (max-width: 768px) {
+  .contact-footer-section {
+    padding: 70px 6% 50px;
+  }
+
+  .contact-main-title {
+    font-size: 2.3rem;
+    margin-bottom: 35px;
+  }
+
+  .contact-logo-hub {
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .contact-brand-emblem {
+    max-width: 90px;
+    max-height: 70px;
+  }
+
+  .contact-logo-divider {
+    height: 45px;
+  }
+
+  .contact-interactive-link, .contact-hours-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .contact-invitation-highlight {
+    font-size: 1.5rem;
+  }
+}
+/* --- Global Shimmering Gold Border Accent --- */
+.gold-accent-border {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Creates a precise glowing line accent using a pseudo element baseline */
+.gold-accent-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    rgba(212, 175, 55, 0) 0%, 
+    rgba(255, 215, 0, 0.8) 50%, 
+    rgba(212, 175, 55, 0) 100%
+  );
+  transition: transform 0.4s ease, filter 0.4s ease;
+  transform: scaleX(0.95);
+}
+
+.gold-accent-border:hover::after {
+  transform: scaleX(1.05);
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.9));
+}
+
+/* ====================================================
+   📱 MOBILE LAYOUT RULES (Targets screens under 768px wide)
+   ==================================================== */
+
+/* Base settings for the toggle icon (hidden on desktop layouts) */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 0;
+}
+
+.mobile-menu-toggle .bar {
+  height: 2.5px;
+  width: 100%;
+  background-color: #ffd700; /* Luxury gold color for the lines */
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  /* Fix the overall navbar container space on phones */
+  .navbar {
+    height: 75px; /* Shorter header on mobile to conserve screen space */
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+
+  /* Keep the logo center-right and scale down slightly to look proportional */
+  .logo-container-center {
+    width: auto;
+    order: 2; /* Positions logo cleanly in the center-right region */
+  }
+
+  .navbar-logo-centered {
+    height: 50px; /* Perfectly sized for phone screens */
+  }
+
+  /* Display the hamburger button on the left side of the header */
+  .mobile-menu-toggle {
+    display: flex;
+    order: 1; /* Pushes toggle button to the left side */
+  }
+
+  /* Morph hamburger lines smoothly into an 'X' close icon when active */
+  .mobile-menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar .nav-group {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #121212; /* One solid, elegant dark luxury canvas */
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 1001;
+
+    /* Handle clean reveal animations together */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* 2. Position the Left group right beneath the navbar header */
+  .navbar .nav-left {
+    top: 75px;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+
+  /* 3. Drop the Right group directly below it with NO absolute layout positioning */
+  .navbar .nav-right {
+    top: 75px; /* Anchors to the exact same top bar start point */
+    padding-top: 140px; /* Perfectly offsets its links below Home and Menu */
+    padding-bottom: 25px;
+    background-color: transparent; /* Allows the left group's color or a solid canvas to blend */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6); /* Adds a premium shadow to the very bottom edge */
+  }
+
+  /* 4. This hidden structural block explicitly patches any empty spaces in between */
+  .navbar .nav-left::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 160px; /* Deep extension block that fuses the sections completely */
+    background-color: #121212;
+    z-index: -1;
+  }
+
+  /* 5. Actively display both halves smoothly at the same time */
+  .navbar .nav-group.nav-mobile-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Completely remove desktop vertical line dividers on phones */
+  .navbar .nav-divider {
+    display: none !important;
+  }
+
+  /* Ensure the Hero section updates its size according to the mobile navbar height */
+  .hero {
+    height: calc(100vh - 75px);
+  }
+}
+/* Absolute bottom of the file to guarantee override authority */
+@media screen and (max-width: 768px) {
+  .best-selling-section.hide-on-mobile,
+  .hide-on-mobile {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+}
